@@ -78,14 +78,17 @@
                                             <constraint firstAttribute="width" constant="64" id="R5g-Ky-XTH"/>
                                         </constraints>
                                         <state key="normal" image="player_btn_play_normal"/>
+                                        <state key="highlighted" image="player_btn_play_highlight"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ov-H5-FTT">
                                         <rect key="frame" x="72" y="50" width="64" height="64"/>
                                         <state key="normal" title="Button" image="player_btn_pre_normal"/>
+                                        <state key="highlighted" image="player_btn_pre_highlight"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2L-8h-7fP">
                                         <rect key="frame" x="240" y="50" width="64" height="64"/>
                                         <state key="normal" image="player_btn_next_normal"/>
+                                        <state key="highlighted" image="player_btn_next_highlight"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04:55" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwE-2y-0OU">
                                         <rect key="frame" x="8" y="8" width="39" height="17"/>
@@ -167,8 +170,11 @@
         <image name="main_tab_more_h" width="45" height="45"/>
         <image name="miniplayer_btn_playlist_close" width="40" height="40"/>
         <image name="miniplayer_btn_playlist_close_b" width="40" height="40"/>
+        <image name="player_btn_next_highlight" width="64" height="64"/>
         <image name="player_btn_next_normal" width="64" height="64"/>
+        <image name="player_btn_play_highlight" width="64" height="64"/>
         <image name="player_btn_play_normal" width="64" height="64"/>
+        <image name="player_btn_pre_highlight" width="64" height="64"/>
         <image name="player_btn_pre_normal" width="64" height="64"/>
     </resources>
 </document>
