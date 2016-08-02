@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -68,7 +69,7 @@
                                     <constraint firstItem="zmf-N5-wAi" firstAttribute="centerY" secondItem="cAY-XB-EqK" secondAttribute="centerY" id="sGc-Xu-MRM"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypp-TG-led">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypp-TG-led" userLabel="bottom">
                                 <rect key="frame" x="0.0" y="537" width="375" height="130"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWi-AD-mC4">
@@ -79,16 +80,25 @@
                                         </constraints>
                                         <state key="normal" image="player_btn_play_normal"/>
                                         <state key="highlighted" image="player_btn_play_highlight"/>
+                                        <connections>
+                                            <action selector="playOrPauseMusic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vvN-37-3pY"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ov-H5-FTT">
                                         <rect key="frame" x="72" y="50" width="64" height="64"/>
                                         <state key="normal" title="Button" image="player_btn_pre_normal"/>
                                         <state key="highlighted" image="player_btn_pre_highlight"/>
+                                        <connections>
+                                            <action selector="preMusic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hl7-XD-CUN"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2L-8h-7fP">
                                         <rect key="frame" x="240" y="50" width="64" height="64"/>
                                         <state key="normal" image="player_btn_next_normal"/>
                                         <state key="highlighted" image="player_btn_next_highlight"/>
+                                        <connections>
+                                            <action selector="nextMusic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="INI-0x-oef"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04:55" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwE-2y-0OU">
                                         <rect key="frame" x="8" y="8" width="39" height="17"/>
@@ -130,10 +140,9 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kzxd" translatesAutoresizingMaskIntoConstraints="NO" id="TT1-YR-loD">
-                                <rect key="frame" x="87" y="234" width="200" height="200"/>
+                                <rect key="frame" x="14" y="120" width="347" height="347"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="hK0-Mw-YiX"/>
-                                    <constraint firstAttribute="width" constant="200" id="iQK-yi-KWW"/>
+                                    <constraint firstAttribute="width" secondItem="TT1-YR-loD" secondAttribute="height" multiplier="1:1" id="4bb-NT-iGE"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你是我的小苹果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvD-y7-GOf">
@@ -147,17 +156,27 @@
                         <constraints>
                             <constraint firstItem="Ypp-TG-led" firstAttribute="top" secondItem="xvD-y7-GOf" secondAttribute="bottom" constant="8" id="1fd-8u-qXj"/>
                             <constraint firstItem="cAY-XB-EqK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="6SC-di-IRJ"/>
-                            <constraint firstItem="TT1-YR-loD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="CrB-Q8-ZxV"/>
                             <constraint firstItem="xvD-y7-GOf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="D5o-PU-dSP"/>
                             <constraint firstItem="cAY-XB-EqK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="F3p-7P-3Gq"/>
+                            <constraint firstItem="Ypp-TG-led" firstAttribute="top" secondItem="TT1-YR-loD" secondAttribute="bottom" constant="70" id="GmM-ht-SCJ"/>
+                            <constraint firstItem="TT1-YR-loD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Izg-YN-KQP"/>
                             <constraint firstItem="Ypp-TG-led" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ohx-DK-no9"/>
                             <constraint firstAttribute="trailing" secondItem="Ypp-TG-led" secondAttribute="trailing" id="hAp-z8-vmO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ypp-TG-led" secondAttribute="bottom" id="kS7-JI-QxN"/>
+                            <constraint firstItem="TT1-YR-loD" firstAttribute="top" secondItem="cAY-XB-EqK" secondAttribute="bottom" constant="20" id="rqC-lG-fak"/>
                             <constraint firstAttribute="trailing" secondItem="cAY-XB-EqK" secondAttribute="trailing" id="wAJ-rl-qNX"/>
-                            <constraint firstItem="TT1-YR-loD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xQr-ax-GCj"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="alumView" destination="jmx-9i-wf1" id="tao-DO-SCD"/>
+                        <outlet property="icoView" destination="TT1-YR-loD" id="pff-We-X1W"/>
+                        <outlet property="musicTimer" destination="T8J-Wh-0yk" id="6cJ-lv-Blw"/>
+                        <outlet property="nameLabel" destination="E4w-NZ-IBy" id="Vt4-El-w1L"/>
+                        <outlet property="progress" destination="ghx-zH-r2H" id="QHZ-wi-aoy"/>
+                        <outlet property="seekTimer" destination="gwE-2y-0OU" id="HI4-dI-t5K"/>
+                        <outlet property="singerLabel" destination="2aP-m7-ZJg" id="79y-FQ-iBP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

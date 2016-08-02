@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3834028E9110559BB952F1E73387327E32753F7F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3834028E9110559BB952F1E73387327E32753F7F" : 0,
+    "65D6DB69FC84550EA0B40BE6508B97475483A876" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E9B9E259-0705-409C-A988-16BEFBC19340",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3834028E9110559BB952F1E73387327E32753F7F" : "QQMusic\/",
+    "65D6DB69FC84550EA0B40BE6508B97475483A876" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "QQMusic",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "QQMusic.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Erichkko\/QQMusic.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3834028E9110559BB952F1E73387327E32753F7F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Erichkko\/PinterestLayout.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "65D6DB69FC84550EA0B40BE6508B97475483A876"
+    }
+  ]
+}
