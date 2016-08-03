@@ -1,0 +1,15 @@
+//
+//  PrefixHeader.pch
+//  QQMusic
+//
+//  Created by wanglong on 16/8/3.
+//  Copyright © 2016年 wanglong. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#import "NSString+Extension.h"
+
+#endif 

@@ -79,6 +79,7 @@
                                             <constraint firstAttribute="width" constant="64" id="R5g-Ky-XTH"/>
                                         </constraints>
                                         <state key="normal" image="player_btn_play_normal"/>
+                                        <state key="selected" image="player_btn_pause_normal"/>
                                         <state key="highlighted" image="player_btn_play_highlight"/>
                                         <connections>
                                             <action selector="playOrPauseMusic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vvN-37-3pY"/>
@@ -106,7 +107,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ghx-zH-r2H">
+                                    <slider opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ghx-zH-r2H">
                                         <rect key="frame" x="53" y="2" width="266" height="31"/>
                                         <color key="minimumTrackTintColor" red="0.13725490196078433" green="0.55294117647058827" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                     </slider>
@@ -173,6 +174,7 @@
                         <outlet property="icoView" destination="TT1-YR-loD" id="pff-We-X1W"/>
                         <outlet property="musicTimer" destination="T8J-Wh-0yk" id="6cJ-lv-Blw"/>
                         <outlet property="nameLabel" destination="E4w-NZ-IBy" id="Vt4-El-w1L"/>
+                        <outlet property="playOrPauseBtn" destination="CWi-AD-mC4" id="Lf0-cK-pPw"/>
                         <outlet property="progress" destination="ghx-zH-r2H" id="QHZ-wi-aoy"/>
                         <outlet property="seekTimer" destination="gwE-2y-0OU" id="HI4-dI-t5K"/>
                         <outlet property="singerLabel" destination="2aP-m7-ZJg" id="79y-FQ-iBP"/>
@@ -191,6 +193,7 @@
         <image name="miniplayer_btn_playlist_close_b" width="40" height="40"/>
         <image name="player_btn_next_highlight" width="64" height="64"/>
         <image name="player_btn_next_normal" width="64" height="64"/>
+        <image name="player_btn_pause_normal" width="64" height="64"/>
         <image name="player_btn_play_highlight" width="64" height="64"/>
         <image name="player_btn_play_normal" width="64" height="64"/>
         <image name="player_btn_pre_highlight" width="64" height="64"/>
