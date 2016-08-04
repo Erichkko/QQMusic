@@ -152,9 +152,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IYG-Y2-CqM" customClass="WLLrcView">
+                                <rect key="frame" x="0.0" y="100" width="375" height="427"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Ypp-TG-led" firstAttribute="top" secondItem="IYG-Y2-CqM" secondAttribute="bottom" constant="10" id="1Hr-Ph-ejN"/>
                             <constraint firstItem="Ypp-TG-led" firstAttribute="top" secondItem="xvD-y7-GOf" secondAttribute="bottom" constant="8" id="1fd-8u-qXj"/>
                             <constraint firstItem="cAY-XB-EqK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="6SC-di-IRJ"/>
                             <constraint firstItem="xvD-y7-GOf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="D5o-PU-dSP"/>
@@ -162,9 +167,12 @@
                             <constraint firstItem="Ypp-TG-led" firstAttribute="top" secondItem="TT1-YR-loD" secondAttribute="bottom" constant="70" id="GmM-ht-SCJ"/>
                             <constraint firstItem="TT1-YR-loD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Izg-YN-KQP"/>
                             <constraint firstItem="Ypp-TG-led" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ohx-DK-no9"/>
+                            <constraint firstItem="IYG-Y2-CqM" firstAttribute="top" secondItem="cAY-XB-EqK" secondAttribute="bottom" id="at4-Sd-QgR"/>
                             <constraint firstAttribute="trailing" secondItem="Ypp-TG-led" secondAttribute="trailing" id="hAp-z8-vmO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ypp-TG-led" secondAttribute="bottom" id="kS7-JI-QxN"/>
+                            <constraint firstItem="IYG-Y2-CqM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mH7-vL-ibe"/>
                             <constraint firstItem="TT1-YR-loD" firstAttribute="top" secondItem="cAY-XB-EqK" secondAttribute="bottom" constant="20" id="rqC-lG-fak"/>
+                            <constraint firstAttribute="trailing" secondItem="IYG-Y2-CqM" secondAttribute="trailing" id="uHj-LH-NYE"/>
                             <constraint firstAttribute="trailing" secondItem="cAY-XB-EqK" secondAttribute="trailing" id="wAJ-rl-qNX"/>
                         </constraints>
                     </view>
@@ -172,6 +180,8 @@
                     <connections>
                         <outlet property="alumView" destination="jmx-9i-wf1" id="tao-DO-SCD"/>
                         <outlet property="icoView" destination="TT1-YR-loD" id="pff-We-X1W"/>
+                        <outlet property="lrcLabel" destination="xvD-y7-GOf" id="SgR-SZ-JI8"/>
+                        <outlet property="lrcView" destination="IYG-Y2-CqM" id="7Sq-Cg-Coy"/>
                         <outlet property="musicTimer" destination="T8J-Wh-0yk" id="6cJ-lv-Blw"/>
                         <outlet property="nameLabel" destination="E4w-NZ-IBy" id="Vt4-El-w1L"/>
                         <outlet property="playOrPauseBtn" destination="CWi-AD-mC4" id="Lf0-cK-pPw"/>
@@ -182,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="271.5" y="244.5"/>
+            <point key="canvasLocation" x="194.5" y="233.5"/>
         </scene>
     </scenes>
     <resources>

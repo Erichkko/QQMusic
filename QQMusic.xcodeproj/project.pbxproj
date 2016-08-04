@@ -75,6 +75,9 @@
 		FEE161391D50DBA7000313E5 /* Musics.plist in Resources */ = {isa = PBXBuildFile; fileRef = FEE161101D50DBA7000313E5 /* Musics.plist */; };
 		FEE1613C1D50DBD7000313E5 /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE1613B1D50DBD7000313E5 /* Music.m */; };
 		FEE1613F1D50E2D4000313E5 /* WLTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE1613E1D50E2D4000313E5 /* WLTool.m */; };
+		FEEC757C1D53799B007EE2B0 /* CALayer+PauseAimate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEC757B1D53799B007EE2B0 /* CALayer+PauseAimate.m */; };
+		FEEC757F1D53809D007EE2B0 /* WLLrcView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEC757E1D53809D007EE2B0 /* WLLrcView.m */; };
+		FEEC75821D5393A6007EE2B0 /* WLLrcCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEC75811D5393A6007EE2B0 /* WLLrcCell.m */; };
 		FEED5C9D1D50EE2B003A281D /* WLMusicTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FEED5C9C1D50EE2B003A281D /* WLMusicTool.m */; };
 		FEED5CA11D52288F003A281D /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = FEED5CA01D52288F003A281D /* NSString+Extension.m */; };
 /* End PBXBuildFile section */
@@ -180,6 +183,12 @@
 		FEE1613B1D50DBD7000313E5 /* Music.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
 		FEE1613D1D50E2D4000313E5 /* WLTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTool.h; sourceTree = "<group>"; };
 		FEE1613E1D50E2D4000313E5 /* WLTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLTool.m; sourceTree = "<group>"; };
+		FEEC757A1D53799B007EE2B0 /* CALayer+PauseAimate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+PauseAimate.h"; sourceTree = "<group>"; };
+		FEEC757B1D53799B007EE2B0 /* CALayer+PauseAimate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+PauseAimate.m"; sourceTree = "<group>"; };
+		FEEC757D1D53809D007EE2B0 /* WLLrcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLrcView.h; sourceTree = "<group>"; };
+		FEEC757E1D53809D007EE2B0 /* WLLrcView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLLrcView.m; sourceTree = "<group>"; };
+		FEEC75801D5393A6007EE2B0 /* WLLrcCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLrcCell.h; sourceTree = "<group>"; };
+		FEEC75811D5393A6007EE2B0 /* WLLrcCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLLrcCell.m; sourceTree = "<group>"; };
 		FEED5C9B1D50EE2B003A281D /* WLMusicTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLMusicTool.h; sourceTree = "<group>"; };
 		FEED5C9C1D50EE2B003A281D /* WLMusicTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLMusicTool.m; sourceTree = "<group>"; };
 		FEED5C9F1D52288F003A281D /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
@@ -291,6 +300,10 @@
 		FE95AEF61D4F90690025650C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FEEC757D1D53809D007EE2B0 /* WLLrcView.h */,
+				FEEC757E1D53809D007EE2B0 /* WLLrcView.m */,
+				FEEC75801D5393A6007EE2B0 /* WLLrcCell.h */,
+				FEEC75811D5393A6007EE2B0 /* WLLrcCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -448,6 +461,8 @@
 		FEED5C9E1D522841003A281D /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				FEEC757A1D53799B007EE2B0 /* CALayer+PauseAimate.h */,
+				FEEC757B1D53799B007EE2B0 /* CALayer+PauseAimate.m */,
 				FEED5C9F1D52288F003A281D /* NSString+Extension.h */,
 				FEED5CA01D52288F003A281D /* NSString+Extension.m */,
 			);
@@ -568,6 +583,7 @@
 				FEE160D91D50C7D9000313E5 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				FE95AEFB1D4F91110025650C /* MusicViewController.m in Sources */,
 				FEED5C9D1D50EE2B003A281D /* WLMusicTool.m in Sources */,
+				FEEC757C1D53799B007EE2B0 /* CALayer+PauseAimate.m in Sources */,
 				FEE160D71D50C7D9000313E5 /* MASViewConstraint.m in Sources */,
 				FEE1613C1D50DBD7000313E5 /* Music.m in Sources */,
 				FE95AEF71D4F90690025650C /* AppDelegate.m in Sources */,
@@ -576,6 +592,7 @@
 				FE95AEF81D4F90690025650C /* main.m in Sources */,
 				FEE160D11D50C7D9000313E5 /* UIImage+BoxBlur.m in Sources */,
 				FEE160DA1D50C7D9000313E5 /* View+MASAdditions.m in Sources */,
+				FEEC75821D5393A6007EE2B0 /* WLLrcCell.m in Sources */,
 				FEE160D21D50C7D9000313E5 /* MASCompositeConstraint.m in Sources */,
 				FEE160DC1D50C7D9000313E5 /* MJExtensionConst.m in Sources */,
 				FEE160E11D50C7D9000313E5 /* NSObject+MJKeyValue.m in Sources */,
@@ -585,6 +602,7 @@
 				FEE160D81D50C7D9000313E5 /* NSArray+MASAdditions.m in Sources */,
 				FEE160DB1D50C7D9000313E5 /* ViewController+MASAdditions.m in Sources */,
 				FEE160DE1D50C7D9000313E5 /* MJProperty.m in Sources */,
+				FEEC757F1D53809D007EE2B0 /* WLLrcView.m in Sources */,
 				FEE160DF1D50C7D9000313E5 /* MJType.m in Sources */,
 				FEE160D31D50C7D9000313E5 /* MASConstraint.m in Sources */,
 				FEE160E31D50C7D9000313E5 /* NSString+MJExtension.m in Sources */,

@@ -11,5 +11,7 @@
 
 
 #import "NSString+Extension.h"
+#import "Masonry.h"
+#import "CALayer+PauseAimate.h"
 
 #endif 

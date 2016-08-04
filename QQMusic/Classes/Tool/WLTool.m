@@ -47,6 +47,7 @@ static Music *_playingMusic;
         nextIndex = 0;
     }
     Music *music = _allMusic[nextIndex];
+    _playingMusic = music;
     return music;
 }
 
@@ -57,6 +58,7 @@ static Music *_playingMusic;
         preIndex = _allMusic.count-1;
     }
     Music *music = _allMusic[preIndex];
+     _playingMusic = music;
     return music;
 }
 

@@ -11,14 +11,15 @@
 #import "Music.h"
 #import "WLTool.h"
 #import "WLMusicTool.h"
+#import "WLLrcView.h"
 
-#import "Masonry.h"
+
 
 
 #import <AVFoundation/AVFoundation.h>
 
 #define WlColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(g)/255.0 alpha:1.0]
-@interface MusicViewController ()<AVAudioPlayerDelegate>
+@interface MusicViewController ()<AVAudioPlayerDelegate,UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *alumView;
 @property (weak, nonatomic) IBOutlet UIImageView *icoView;
 @property (weak, nonatomic) IBOutlet UISlider *progress;
@@ -28,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *seekTimer;
 @property (weak, nonatomic) IBOutlet UILabel *musicTimer;
 @property (weak, nonatomic) IBOutlet UIButton *playOrPauseBtn;
+@property (weak, nonatomic) IBOutlet WLLrcView *lrcView;
+@property (weak, nonatomic) IBOutlet UILabel *lrcLabel;
 
 /** player */
 @property(nonatomic,strong)AVAudioPlayer *player;
@@ -45,10 +48,19 @@
     [self setupProgressStyle];
     [self playOrPauseMusic:nil];
     [self setupView];
+    [self playMusic];
+    
    
 }
 
-
+- (void)setupLrc
+{
+    CGFloat width = self.lrcView.frame.size.width;
+    CGFloat height = self.lrcView.frame.size.height;
+    self.lrcView.contentSize = CGSizeMake(width * 2, height);
+    self.lrcView.pagingEnabled = YES;
+    self.lrcView.delegate = self;
+}
 - (void)setupView
 {
     Music *music = [WLTool playingMusic];
@@ -165,16 +177,33 @@
     
 }
 - (IBAction)playOrPauseMusic:(id)sender {
-    [self playMusic];
+    self.playOrPauseBtn.selected = !self.playOrPauseBtn.selected;
+    if ([self.player isPlaying]) {
+        [self.player pause];
+        [self cancelTimer];
+        [self.icoView.layer pauseAnimate];
+    }else{
+        [self.player play];
+        [self setupTimer];
+        [self.icoView.layer resumeAnimate];
+    }
 }
 - (IBAction)nextMusic:(id)sender {
-    [WLTool nextMusic];
+    Music *music = [WLTool playingMusic];
+    
+    [WLMusicTool stopMusicWithName:music.filename];
+    
+    music = [WLTool nextMusic];
     [self playMusic];
    
     
 }
 - (IBAction)preMusic:(id)sender {
-    [WLTool preMusic];
+    Music *music = [WLTool playingMusic];
+    
+    [WLMusicTool stopMusicWithName:music.filename];
+    
+    music = [WLTool preMusic];
     [self playMusic];
    
 }
@@ -214,12 +243,13 @@
 {
     [super viewDidLayoutSubviews];
     [self addIconStyle];
+    [self setupLrc];
 
 }
 - (void)updatePlayProgess
 {
     self.seekTimer.text = [NSString convertTime:self.player.currentTime];
-    NSLog(@"progess == %f",self.player.currentTime/self.player.duration);
+//    NSLog(@"progess == %f",self.player.currentTime/self.player.duration);
     self.progress.value = self.player.currentTime/self.player.duration;
 
 }
@@ -247,6 +277,22 @@
 //    [self.icoView.layer addAnimation:nil forKey:nil];
     NSLog(@"一首歌播放完成...");
     [self cancelTimer];
+    [self.icoView.layer pauseAnimate];
+    [self nextMusic:nil];
+    [self.icoView.layer resumeAnimate];
 }
 
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    //1.或得scrollview的左上角偏移位置
+    CGPoint point = scrollView.contentOffset;
+ 
+    //2.计算滑动比例
+    CGFloat ratio = point.x / scrollView.frame.size.width;
+    
+    self.icoView.alpha = 1 - ratio;
+    self.lrcLabel.alpha = 1 - ratio;
+}
 @end
