@@ -8,10 +8,15 @@
 
 #import "WLLrcView.h"
 
+
+#import "WLLrcTool.h"
 #import "WLLrcCell.h"
+#import "WLLrc.h"
 @interface WLLrcView ()<UITableViewDataSource,UITableViewDelegate>
 /** tableView */
 @property(nonatomic,weak) UITableView *tableView ;
+/** lrcs */
+@property(nonatomic,strong)NSArray *lrcs;
 
 @end
 @implementation WLLrcView
@@ -59,6 +64,19 @@
    
 }
 
+
+- (void)setLrcName:(NSString *)lrcName
+{
+    //1.获得歌词文件
+    _lrcName = lrcName;
+    
+    //2.解析歌词
+    self.lrcs = [WLLrcTool lrcWithLrcName:lrcName];
+    
+    //3.刷新表格
+    [self.tableView reloadData];
+//    self.lrcs = [NSBundle mainBundle];
+}
 - (void)layoutSubviews
 {
     //设置歌词显示的位置
@@ -84,14 +102,16 @@
 #pragma mark - UITableViewDataSource数据源方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.lrcs.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WLLrcCell *cell = [WLLrcCell lrcCellWithTableView:tableView];
-    cell.textLabel.text = [NSString stringWithFormat:@"第 %zd 个 Cell",indexPath.row];
+    WLLrc *lrc = self.lrcs[indexPath.row];
+    cell.textLabel.text = lrc.lrcText;
+    
     return cell;
 }
 #pragma mark - UITableViewDelegate代理方法

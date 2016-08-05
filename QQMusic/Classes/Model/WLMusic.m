@@ -6,8 +6,8 @@
 //  Copyright © 2016年 wanglong. All rights reserved.
 //
 
-#import "Music.h"
+#import "WLMusic.h"
 
-@implementation Music
+@implementation WLMusic
 
 @end

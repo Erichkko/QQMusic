@@ -10,4 +10,6 @@
 
 @interface WLLrcView : UIScrollView
 
+/**lrcName*/
+@property(nonatomic,copy)NSString *lrcName;
 @end

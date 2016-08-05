@@ -6,21 +6,21 @@
 //  Copyright © 2016年 wanglong. All rights reserved.
 //
 
-#import "WLTool.h"
+#import "WLControllMusicTool.h"
 
 #import "MJExtension.h"
 
 
-#import "Music.h"
-@implementation WLTool
+#import "WLMusic.h"
+@implementation WLControllMusicTool
 
 
 static NSArray *_allMusic;
-static Music *_playingMusic;
+static WLMusic *_playingMusic;
 + (void)initialize
 {
     
-    _allMusic =  [Music objectArrayWithFilename:@"Musics.plist"];
+    _allMusic =  [WLMusic objectArrayWithFilename:@"Musics.plist"];
     _playingMusic = _allMusic[0];
 }
 
@@ -29,35 +29,35 @@ static Music *_playingMusic;
     return _allMusic;
 }
 
-+ (Music *)playingMusic
++ (WLMusic *)playingMusic
 {
     return _playingMusic;
 }
 
-+ (void)setPlayMusic:(Music *)music
++ (void)setPlayMusic:(WLMusic *)music
 {
     _playingMusic = music;
 }
 
-+ (Music *)nextMusic
++ (WLMusic *)nextMusic
 {
     NSInteger index = [_allMusic indexOfObject:_playingMusic];
     NSInteger nextIndex = ++index;
     if (nextIndex >= _allMusic.count) {
         nextIndex = 0;
     }
-    Music *music = _allMusic[nextIndex];
+    WLMusic *music = _allMusic[nextIndex];
     _playingMusic = music;
     return music;
 }
 
-+ (Music *)preMusic{
++ (WLMusic *)preMusic{
     NSInteger index = [_allMusic indexOfObject:_playingMusic];
     NSInteger preIndex = --index;
     if (preIndex < 0) {
         preIndex = _allMusic.count-1;
     }
-    Music *music = _allMusic[preIndex];
+    WLMusic *music = _allMusic[preIndex];
      _playingMusic = music;
     return music;
 }

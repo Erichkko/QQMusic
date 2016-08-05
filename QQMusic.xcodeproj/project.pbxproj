@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE1818031D54B9E100E540ED /* WLLrcTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1818021D54B9E100E540ED /* WLLrcTool.m */; };
+		FE1818061D54DB4700E540ED /* WLLrc.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1818051D54DB4700E540ED /* WLLrc.m */; };
+		FE1818091D54DC6600E540ED /* WLTimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1818081D54DC6600E540ED /* WLTimeTool.m */; };
 		FE95AEE21D4F8FAD0025650C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE95AEE01D4F8FAD0025650C /* Main.storyboard */; };
 		FE95AEE41D4F8FAD0025650C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE95AEE31D4F8FAD0025650C /* Assets.xcassets */; };
 		FE95AEF71D4F90690025650C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE95AEF21D4F90690025650C /* AppDelegate.m */; };
@@ -73,8 +76,8 @@
 		FEE161371D50DBA7000313E5 /* 309769.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEE1610E1D50DBA7000313E5 /* 309769.mp3 */; };
 		FEE161381D50DBA7000313E5 /* 339744.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEE1610F1D50DBA7000313E5 /* 339744.mp3 */; };
 		FEE161391D50DBA7000313E5 /* Musics.plist in Resources */ = {isa = PBXBuildFile; fileRef = FEE161101D50DBA7000313E5 /* Musics.plist */; };
-		FEE1613C1D50DBD7000313E5 /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE1613B1D50DBD7000313E5 /* Music.m */; };
-		FEE1613F1D50E2D4000313E5 /* WLTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE1613E1D50E2D4000313E5 /* WLTool.m */; };
+		FEE1613C1D50DBD7000313E5 /* WLMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE1613B1D50DBD7000313E5 /* WLMusic.m */; };
+		FEE1613F1D50E2D4000313E5 /* WLControllMusicTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE1613E1D50E2D4000313E5 /* WLControllMusicTool.m */; };
 		FEEC757C1D53799B007EE2B0 /* CALayer+PauseAimate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEC757B1D53799B007EE2B0 /* CALayer+PauseAimate.m */; };
 		FEEC757F1D53809D007EE2B0 /* WLLrcView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEC757E1D53809D007EE2B0 /* WLLrcView.m */; };
 		FEEC75821D5393A6007EE2B0 /* WLLrcCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEC75811D5393A6007EE2B0 /* WLLrcCell.m */; };
@@ -83,6 +86,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE1818011D54B9E100E540ED /* WLLrcTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLrcTool.h; sourceTree = "<group>"; };
+		FE1818021D54B9E100E540ED /* WLLrcTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLLrcTool.m; sourceTree = "<group>"; };
+		FE1818041D54DB4700E540ED /* WLLrc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLrc.h; sourceTree = "<group>"; };
+		FE1818051D54DB4700E540ED /* WLLrc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLLrc.m; sourceTree = "<group>"; };
+		FE1818071D54DC6600E540ED /* WLTimeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTimeTool.h; sourceTree = "<group>"; };
+		FE1818081D54DC6600E540ED /* WLTimeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLTimeTool.m; sourceTree = "<group>"; };
 		FE95AED41D4F8FAB0025650C /* QQMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QQMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE95AEE11D4F8FAD0025650C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE95AEE31D4F8FAD0025650C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -179,10 +188,10 @@
 		FEE1610E1D50DBA7000313E5 /* 309769.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 309769.mp3; sourceTree = "<group>"; };
 		FEE1610F1D50DBA7000313E5 /* 339744.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 339744.mp3; sourceTree = "<group>"; };
 		FEE161101D50DBA7000313E5 /* Musics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Musics.plist; sourceTree = "<group>"; };
-		FEE1613A1D50DBD7000313E5 /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
-		FEE1613B1D50DBD7000313E5 /* Music.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
-		FEE1613D1D50E2D4000313E5 /* WLTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTool.h; sourceTree = "<group>"; };
-		FEE1613E1D50E2D4000313E5 /* WLTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLTool.m; sourceTree = "<group>"; };
+		FEE1613A1D50DBD7000313E5 /* WLMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLMusic.h; sourceTree = "<group>"; };
+		FEE1613B1D50DBD7000313E5 /* WLMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLMusic.m; sourceTree = "<group>"; };
+		FEE1613D1D50E2D4000313E5 /* WLControllMusicTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLControllMusicTool.h; sourceTree = "<group>"; };
+		FEE1613E1D50E2D4000313E5 /* WLControllMusicTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLControllMusicTool.m; sourceTree = "<group>"; };
 		FEEC757A1D53799B007EE2B0 /* CALayer+PauseAimate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+PauseAimate.h"; sourceTree = "<group>"; };
 		FEEC757B1D53799B007EE2B0 /* CALayer+PauseAimate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+PauseAimate.m"; sourceTree = "<group>"; };
 		FEEC757D1D53809D007EE2B0 /* WLLrcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLrcView.h; sourceTree = "<group>"; };
@@ -280,8 +289,10 @@
 		FE95AEF41D4F90690025650C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FEE1613A1D50DBD7000313E5 /* Music.h */,
-				FEE1613B1D50DBD7000313E5 /* Music.m */,
+				FEE1613A1D50DBD7000313E5 /* WLMusic.h */,
+				FEE1613B1D50DBD7000313E5 /* WLMusic.m */,
+				FE1818041D54DB4700E540ED /* WLLrc.h */,
+				FE1818051D54DB4700E540ED /* WLLrc.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,10 +300,14 @@
 		FE95AEF51D4F90690025650C /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				FEE1613D1D50E2D4000313E5 /* WLTool.h */,
-				FEE1613E1D50E2D4000313E5 /* WLTool.m */,
+				FEE1613D1D50E2D4000313E5 /* WLControllMusicTool.h */,
+				FEE1613E1D50E2D4000313E5 /* WLControllMusicTool.m */,
 				FEED5C9B1D50EE2B003A281D /* WLMusicTool.h */,
 				FEED5C9C1D50EE2B003A281D /* WLMusicTool.m */,
+				FE1818011D54B9E100E540ED /* WLLrcTool.h */,
+				FE1818021D54B9E100E540ED /* WLLrcTool.m */,
+				FE1818071D54DC6600E540ED /* WLTimeTool.h */,
+				FE1818081D54DC6600E540ED /* WLTimeTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -495,6 +510,7 @@
 		FE95AECC1D4F8FAB0025650C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = WL;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = wanglong;
 				TargetAttributes = {
@@ -582,10 +598,12 @@
 			files = (
 				FEE160D91D50C7D9000313E5 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				FE95AEFB1D4F91110025650C /* MusicViewController.m in Sources */,
+				FE1818091D54DC6600E540ED /* WLTimeTool.m in Sources */,
 				FEED5C9D1D50EE2B003A281D /* WLMusicTool.m in Sources */,
 				FEEC757C1D53799B007EE2B0 /* CALayer+PauseAimate.m in Sources */,
 				FEE160D71D50C7D9000313E5 /* MASViewConstraint.m in Sources */,
-				FEE1613C1D50DBD7000313E5 /* Music.m in Sources */,
+				FEE1613C1D50DBD7000313E5 /* WLMusic.m in Sources */,
+				FE1818061D54DB4700E540ED /* WLLrc.m in Sources */,
 				FE95AEF71D4F90690025650C /* AppDelegate.m in Sources */,
 				FEE160E01D50C7D9000313E5 /* NSObject+MJCoding.m in Sources */,
 				FEED5CA11D52288F003A281D /* NSString+Extension.m in Sources */,
@@ -593,6 +611,7 @@
 				FEE160D11D50C7D9000313E5 /* UIImage+BoxBlur.m in Sources */,
 				FEE160DA1D50C7D9000313E5 /* View+MASAdditions.m in Sources */,
 				FEEC75821D5393A6007EE2B0 /* WLLrcCell.m in Sources */,
+				FE1818031D54B9E100E540ED /* WLLrcTool.m in Sources */,
 				FEE160D21D50C7D9000313E5 /* MASCompositeConstraint.m in Sources */,
 				FEE160DC1D50C7D9000313E5 /* MJExtensionConst.m in Sources */,
 				FEE160E11D50C7D9000313E5 /* NSObject+MJKeyValue.m in Sources */,
@@ -606,7 +625,7 @@
 				FEE160DF1D50C7D9000313E5 /* MJType.m in Sources */,
 				FEE160D31D50C7D9000313E5 /* MASConstraint.m in Sources */,
 				FEE160E31D50C7D9000313E5 /* NSString+MJExtension.m in Sources */,
-				FEE1613F1D50E2D4000313E5 /* WLTool.m in Sources */,
+				FEE1613F1D50E2D4000313E5 /* WLControllMusicTool.m in Sources */,
 				FEE160D51D50C7D9000313E5 /* MASLayoutConstraint.m in Sources */,
 				FEE160D01D50C7D9000313E5 /* DRNRealTimeBlurView.m in Sources */,
 				FEE160DD1D50C7D9000313E5 /* MJFoundation.m in Sources */,

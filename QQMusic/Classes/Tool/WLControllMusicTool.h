@@ -7,17 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-@class Music;
-@interface WLTool : NSObject
+@class WLMusic;
+@interface WLControllMusicTool : NSObject
 
 + (NSArray *)loadAllMusic;
 
-+ (Music *)playingMusic;
++ (WLMusic *)playingMusic;
 
-+ (Music *)nextMusic;
++ (WLMusic *)nextMusic;
 
-+ (Music *)preMusic;
++ (WLMusic *)preMusic;
 
-+ (void)setPlayMusic:(Music *)music;
++ (void)setPlayMusic:(WLMusic *)music;
 
 @end

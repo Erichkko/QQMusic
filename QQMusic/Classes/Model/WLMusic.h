@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Music : NSObject
+@interface WLMusic : NSObject
 /**name*/
 @property(nonatomic,copy)NSString *name;
 /**filename*/

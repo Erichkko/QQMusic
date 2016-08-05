@@ -8,8 +8,8 @@
 
 #import "MusicViewController.h"
 
-#import "Music.h"
-#import "WLTool.h"
+#import "WLMusic.h"
+#import "WLControllMusicTool.h"
 #import "WLMusicTool.h"
 #import "WLLrcView.h"
 
@@ -60,10 +60,11 @@
     self.lrcView.contentSize = CGSizeMake(width * 2, height);
     self.lrcView.pagingEnabled = YES;
     self.lrcView.delegate = self;
+
 }
 - (void)setupView
 {
-    Music *music = [WLTool playingMusic];
+    WLMusic *music = [WLControllMusicTool playingMusic];
     self.nameLabel.text = music.name;
     self.singerLabel.text = music.singer;
 //    NSString *musicIcon = [music.icon stringByReplacingOccurrencesOfString:@"." withString:@"@2x."];
@@ -189,28 +190,28 @@
     }
 }
 - (IBAction)nextMusic:(id)sender {
-    Music *music = [WLTool playingMusic];
+    WLMusic *music = [WLControllMusicTool playingMusic];
     
     [WLMusicTool stopMusicWithName:music.filename];
     
-    music = [WLTool nextMusic];
+    music = [WLControllMusicTool nextMusic];
     [self playMusic];
    
     
 }
 - (IBAction)preMusic:(id)sender {
-    Music *music = [WLTool playingMusic];
+    WLMusic *music = [WLControllMusicTool playingMusic];
     
     [WLMusicTool stopMusicWithName:music.filename];
     
-    music = [WLTool preMusic];
+    music = [WLControllMusicTool preMusic];
     [self playMusic];
    
 }
 
 - (void)playMusic
 {
-    Music *music = [WLTool playingMusic];
+    WLMusic *music = [WLControllMusicTool playingMusic];
     AVAudioPlayer *player= [WLMusicTool playMusicWithName:music.filename];
     player.delegate  = self;
     self.player = player;
@@ -225,6 +226,9 @@
     [self setupTimer];
     //开始icon的动画
     [self startIconAnim];
+    
+    //更新 对应的 歌词
+    [self.lrcView setLrcName:music.lrcname];
 }
 
 - (void)startIconAnim
