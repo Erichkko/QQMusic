@@ -14,9 +14,7 @@
 #import "WLLrcView.h"
 #import "WLLrcLabel.h"
 
-
-
-
+#import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 
 #define WlColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(g)/255.0 alpha:1.0]
@@ -250,8 +248,11 @@
     [self cancelLrcTimer];
     //歌词定时器的启动
     [self setLrcTimer];
+    
+    //锁屏状态信息
+    [self setLockScreenInfo];
 }
-
+#pragma mark - 启动动画
 - (void)startIconAnim
 {
     CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
@@ -339,5 +340,68 @@
     
     self.icoView.alpha = 1 - ratio;
     self.lrcLabel.alpha = 1 - ratio;
+}
+
+
+// MPMediaItemPropertyAlbumTitle
+// MPMediaItemPropertyAlbumTrackCount
+// MPMediaItemPropertyAlbumTrackNumber
+// MPMediaItemPropertyArtist
+// MPMediaItemPropertyArtwork
+// MPMediaItemPropertyComposer
+// MPMediaItemPropertyDiscCount
+// MPMediaItemPropertyDiscNumber
+// MPMediaItemPropertyGenre
+// MPMediaItemPropertyPersistentID
+// MPMediaItemPropertyPlaybackDuration
+// MPMediaItemPropertyTitle
+
+#pragma mark - 设置锁屏状态下屏幕显示对应的歌曲图片
+- (void)setLockScreenInfo
+{
+    
+    //0.0获得当前正在播放的音乐
+    WLMusic *music = [WLControllMusicTool playingMusic];
+    //1.0获得锁屏界面中心
+    MPNowPlayingInfoCenter *playCenter = [MPNowPlayingInfoCenter defaultCenter];
+    
+    //2.设置展示的信息
+    NSMutableDictionary *dictM = [NSMutableDictionary dictionary];
+    [dictM setObject:music.name forKey:MPMediaItemPropertyAlbumTitle];
+    [dictM setObject:music.singer forKey:MPMediaItemPropertyArtist];
+    [dictM setObject:@(self.player.duration) forKey:MPMediaItemPropertyPlaybackDuration];
+    
+    //设置展示的背景图片
+    MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:music.icon]];
+    [dictM setObject:artwork forKey:MPMediaItemPropertyArtwork];
+    
+    playCenter.nowPlayingInfo = dictM;
+    
+    //3.让应用程序可以接受远程事件处理
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+}
+/**
+ *    UIEventSubtypeRemoteControlTogglePlayPause      = 103,
+ UIEventSubtypeRemoteControlNextTrack            = 104,
+ UIEventSubtypeRemoteControlPreviousTrack
+ */
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event
+{
+    switch (event.subtype) {
+        case UIEventSubtypeRemoteControlNextTrack:
+            NSLog(@"next...");
+            [self nextMusic:nil];
+            break;
+        case UIEventSubtypeRemoteControlTogglePlayPause:
+            [self playOrPauseMusic:nil];
+            NSLog(@"PlayPause...");
+            break;
+        case UIEventSubtypeRemoteControlPreviousTrack:
+            NSLog(@"pre...");
+            [self preMusic:nil];
+            break;
+        default:
+            break;
+    }
 }
 @end

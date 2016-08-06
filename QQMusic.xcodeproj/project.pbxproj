@@ -522,6 +522,11 @@
 					FE95AED31D4F8FAB0025650C = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = PE8RT9TWB9;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};

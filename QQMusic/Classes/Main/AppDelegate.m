@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+#import <AVFoundation/AVFoundation.h>
 @interface AppDelegate ()
 
 @end
@@ -16,11 +17,33 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    //设置状态栏样式
     [application setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    //设置后台音乐播放模式
+    [self setupBackGroundAduio];
     return YES;
 }
 
+/**
+ *  设置后台播放模式
+ 
+ 1.1.开启所需要的后台模式：
+ 2.1.设置会话
+ */
+- (void)setupBackGroundAduio
+{
+    //获得音频会话对象
+    AVAudioSession *session=[AVAudioSession sharedInstance];
+
+    //后台播放
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
+    //激活会话
+    [session setActive:YES error:nil];
+    
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
