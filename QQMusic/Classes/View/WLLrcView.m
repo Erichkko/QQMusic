@@ -73,6 +73,10 @@
  */
 - (void)setLrcName:(NSString *)lrcName
 {
+    
+    //0.重置currentIndex
+    self.currentIndex = 0;
+    
     //1.获得歌词文件
     _lrcName = lrcName;
     
@@ -82,6 +86,8 @@
     //3.刷新表格
     [self.tableView reloadData];
 //    self.lrcs = [NSBundle mainBundle];
+    
+
 }
 /**
  *  获得当前歌词显示的时间
