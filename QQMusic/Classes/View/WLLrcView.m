@@ -12,6 +12,7 @@
 #import "WLLrcTool.h"
 #import "WLLrcCell.h"
 #import "WLLrc.h"
+#import "WLLrcLabel.h"
 @interface WLLrcView ()<UITableViewDataSource,UITableViewDelegate>
 /** tableView */
 @property(nonatomic,weak) UITableView *tableView ;
@@ -115,6 +116,25 @@
             //滚动到指定播放位置
             [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
         }
+        
+        //4.显示当前播放的行歌词的进度
+        if(self.currentIndex == i)
+        {
+            NSIndexPath * indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+            WLLrcCell *cell = (WLLrcCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+            
+            //计算进度值
+            CGFloat lineAllProgess = nextLrc.lrcTime - lrc.lrcTime;
+            CGFloat progress = (self.currentTime - lrc.lrcTime)/lineAllProgess;
+            
+            //设置内部歌词的进度显示
+            cell.lrcLabel.lrcLineprogess = progress;
+            
+            
+            //设置外边歌词的显示和进度
+            self.lrcLabel.text = lrc.lrcText;
+            self.lrcLabel.lrcLineprogess = progress;
+        }
        
     }
 }
@@ -155,17 +175,17 @@
     
     //special高亮显示当前正在播放的歌词
     if(self.currentIndex == indexPath.row){
-        cell.textLabel.font = [UIFont systemFontOfSize:18];
-        cell.textLabel.textColor = [UIColor redColor];
+        cell.lrcLabel.font = [UIFont systemFontOfSize:18];
+//        cell.lrcLabel.textColor = [UIColor redColor];
     }else{
-        cell.textLabel.font = [UIFont systemFontOfSize:14];
-        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.lrcLabel.font = [UIFont systemFontOfSize:14];
+        cell.lrcLabel.lrcLineprogess = 0;
     }
     
     
     //2.取出模型,给cell设置数据
     WLLrc *lrc = self.lrcs[indexPath.row];
-    cell.textLabel.text = lrc.lrcText;
+    cell.lrc =lrc;
     
     return cell;
 }

@@ -12,6 +12,7 @@
 #import "WLControllMusicTool.h"
 #import "WLMusicTool.h"
 #import "WLLrcView.h"
+#import "WLLrcLabel.h"
 
 
 
@@ -30,7 +31,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *musicTimer;
 @property (weak, nonatomic) IBOutlet UIButton *playOrPauseBtn;
 @property (weak, nonatomic) IBOutlet WLLrcView *lrcView;
-@property (weak, nonatomic) IBOutlet UILabel *lrcLabel;
+@property (weak, nonatomic) IBOutlet WLLrcLabel *lrcLabel;
 
 /** player */
 @property(nonatomic,strong)AVAudioPlayer *player;
@@ -63,6 +64,8 @@
     self.lrcView.contentSize = CGSizeMake(width * 2, height);
     self.lrcView.pagingEnabled = YES;
     self.lrcView.delegate = self;
+    
+    self.lrcView.lrcLabel = self.lrcLabel;
 
 }
 - (void)setupView

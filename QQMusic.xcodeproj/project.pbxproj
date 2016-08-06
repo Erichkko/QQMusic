@@ -83,6 +83,7 @@
 		FEEC75821D5393A6007EE2B0 /* WLLrcCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEC75811D5393A6007EE2B0 /* WLLrcCell.m */; };
 		FEED5C9D1D50EE2B003A281D /* WLMusicTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FEED5C9C1D50EE2B003A281D /* WLMusicTool.m */; };
 		FEED5CA11D52288F003A281D /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = FEED5CA01D52288F003A281D /* NSString+Extension.m */; };
+		FEFDB9ED1D55C85A007645E2 /* WLLrcLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFDB9EC1D55C85A007645E2 /* WLLrcLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -203,6 +204,8 @@
 		FEED5C9F1D52288F003A281D /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		FEED5CA01D52288F003A281D /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		FEED5CA21D522904003A281D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		FEFDB9EB1D55C85A007645E2 /* WLLrcLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLrcLabel.h; sourceTree = "<group>"; };
+		FEFDB9EC1D55C85A007645E2 /* WLLrcLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLLrcLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +322,8 @@
 				FEEC757E1D53809D007EE2B0 /* WLLrcView.m */,
 				FEEC75801D5393A6007EE2B0 /* WLLrcCell.h */,
 				FEEC75811D5393A6007EE2B0 /* WLLrcCell.m */,
+				FEFDB9EB1D55C85A007645E2 /* WLLrcLabel.h */,
+				FEFDB9EC1D55C85A007645E2 /* WLLrcLabel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -625,6 +630,7 @@
 				FEE160DF1D50C7D9000313E5 /* MJType.m in Sources */,
 				FEE160D31D50C7D9000313E5 /* MASConstraint.m in Sources */,
 				FEE160E31D50C7D9000313E5 /* NSString+MJExtension.m in Sources */,
+				FEFDB9ED1D55C85A007645E2 /* WLLrcLabel.m in Sources */,
 				FEE1613F1D50E2D4000313E5 /* WLControllMusicTool.m in Sources */,
 				FEE160D51D50C7D9000313E5 /* MASLayoutConstraint.m in Sources */,
 				FEE160D01D50C7D9000313E5 /* DRNRealTimeBlurView.m in Sources */,
