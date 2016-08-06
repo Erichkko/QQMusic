@@ -12,4 +12,7 @@
 
 /**lrcName*/
 @property(nonatomic,copy)NSString *lrcName;
+
+/**设置当前播放歌词的显示时间*/
+@property(nonatomic,assign)NSTimeInterval currentTime;
 @end

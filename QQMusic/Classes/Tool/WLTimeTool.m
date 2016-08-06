@@ -19,12 +19,15 @@
     NSLog(@"date == %@",[self getNowDateFromatAnDate:newDate]);
 
 //
-//   NSTimeInterval deltimer = [newDate timeIntervalSinceReferenceDate];
+   NSTimeInterval deltimer = [newDate timeIntervalSinceReferenceDate];
 //   NSLog(@"deltimer == %lf",deltimer);
     return 0;
 
 }
-                    
+
+/**
+ *  把日期转化为本地时区的日期
+ */
  + (NSDate *)getNowDateFromatAnDate:(NSDate *)anyDate
                     
     {

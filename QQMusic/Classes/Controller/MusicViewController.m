@@ -34,9 +34,12 @@
 
 /** player */
 @property(nonatomic,strong)AVAudioPlayer *player;
-/** timer */
+/** 进度值timer */
 @property(nonatomic,strong)NSTimer *timer;
 
+
+/**lrcLink*/
+@property(nonatomic,strong)CADisplayLink *lrcDisplayLink;
 @end
 
 @implementation MusicViewController
@@ -180,12 +183,23 @@
 - (IBAction)playOrPauseMusic:(id)sender {
     self.playOrPauseBtn.selected = !self.playOrPauseBtn.selected;
     if ([self.player isPlaying]) {
+        
+        //暂停播放
         [self.player pause];
+        //取消进度定时器
         [self cancelTimer];
+        //歌词定时器的启动
+        [self cancelLrcTimer];
+        //暂定icon动画
         [self.icoView.layer pauseAnimate];
     }else{
+        //开始播放
         [self.player play];
+        //启动进度定时器
         [self setupTimer];
+        //启动歌词定时器
+        [self setLrcTimer];
+        //启动icon动画
         [self.icoView.layer resumeAnimate];
     }
 }
@@ -229,6 +243,10 @@
     
     //更新 对应的 歌词
     [self.lrcView setLrcName:music.lrcname];
+    //取消上一首歌的歌词定时器
+    [self cancelLrcTimer];
+    //歌词定时器的启动
+    [self setLrcTimer];
 }
 
 - (void)startIconAnim
@@ -273,6 +291,26 @@
 {
     [self.timer invalidate];
      self.timer = nil;
+}
+
+#pragma mark - 启动歌词定时器
+- (void)setLrcTimer
+{
+    self.lrcDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateLrcDisplay)];
+    [self.lrcDisplayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+}
+#pragma mark - 取消歌词定时器
+- (void)cancelLrcTimer
+{
+    [self.lrcDisplayLink removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+    [self.lrcDisplayLink invalidate];
+    self.lrcDisplayLink = nil;
+    
+}
+
+- (void)updateLrcDisplay
+{
+    [self.lrcView setCurrentTime:self.player.currentTime];
 }
 #pragma mark - AVAudioPlayerDelegate
 
