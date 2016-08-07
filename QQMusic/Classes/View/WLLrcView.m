@@ -13,6 +13,10 @@
 #import "WLLrcCell.h"
 #import "WLLrc.h"
 #import "WLLrcLabel.h"
+
+#import "WLMusic.h"
+#import "WLControllMusicTool.h"
+
 @interface WLLrcView ()<UITableViewDataSource,UITableViewDelegate>
 /** tableView */
 @property(nonatomic,weak) UITableView *tableView ;
@@ -121,6 +125,9 @@
             [self.tableView reloadRowsAtIndexPaths:@[indexPath,preINdexPath] withRowAnimation:UITableViewRowAnimationNone];
             //滚动到指定播放位置
             [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            
+            //生成锁屏状态下歌词图片
+            [self generateLockImage];
         }
         
         //4.显示当前播放的行歌词的进度
@@ -145,6 +152,69 @@
     }
 }
 
+#pragma mark - 生成锁屏状态下背景图片
+- (void) generateLockImage
+{
+    //拿到正在播放歌曲的图片
+    WLMusic *playingMusic = [WLControllMusicTool playingMusic];
+    UIImage *lockImage = [UIImage imageNamed:playingMusic.icon];
+    
+    //拿到三局歌词
+    //1,拿到正在播放的歌词
+    WLLrc *lrc = self.lrcs[self.currentIndex];
+    //2,拿到上一句歌词
+    NSInteger preIndex = self.currentIndex - 1;
+    WLLrc *preLrc = nil;
+    if (preIndex >= 0) {
+        preLrc = self.lrcs[preIndex];
+    }
+    
+    //3,拿到下一句歌词
+    NSInteger nextIndex = self.currentIndex + 1;
+    WLLrc *nexLrc = nil;
+    
+    if (nextIndex < self.lrcs.count) {
+        nexLrc = self.lrcs[nextIndex];
+    }
+    
+    CGFloat rectW = lockImage.size.width;
+    CGFloat rectH = lockImage.size.height;
+    CGFloat lrcH  = 30;
+    //绘制歌词到图片上
+    UIGraphicsBeginImageContext(lockImage.size);
+    
+    //绘制图片
+    [lockImage drawInRect:CGRectMake(0, 0, rectW, rectH)];
+    
+   //设置歌词属性
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    [attrs setObject:NSForegroundColorAttributeName forKey:[UIColor blueColor]];
+    [attrs setObject:NSFontAttributeName  forKey:[UIFont systemFontOfSize:14]];
+    //设置文字居中显示
+    NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
+    para.alignment = NSTextAlignmentCenter;
+    [attrs setObject:NSParagraphStyleAttributeName forKey:para];
+    
+    //绘制第1句歌词
+    [preLrc.lrcText drawInRect:CGRectMake(0, rectH - 3 * lrcH, rectW, lrcH) withAttributes:attrs];
+    
+    //绘制第3句歌词
+    [preLrc.lrcText drawInRect:CGRectMake(0, rectH - 1 * lrcH, rectW, lrcH) withAttributes:attrs];
+    
+    [attrs setObject:NSForegroundColorAttributeName forKey:[UIColor redColor]];
+    [attrs setObject:NSFontAttributeName  forKey:[UIFont systemFontOfSize:16]];
+    //绘制第2句歌词
+    [preLrc.lrcText drawInRect:CGRectMake(0, rectH - 2 * lrcH, rectW, lrcH) withAttributes:attrs];
+    
+   
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    //发送通知 改编歌词
+    NSDictionary *dict = @{@"lockImage":newImage};
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"LOCKIMAGE_CHANGE_NOTE" object:nil userInfo:dict];
+}
 - (void)layoutSubviews
 {
     //设置歌词显示的位置

@@ -51,10 +51,23 @@
     [self playOrPauseMusic:nil];
     [self setupView];
     [self playMusic];
-    
+    [self setupNoteLockLrcChange];
    
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+//设置通知 监听 歌词的刷新 在后台显示对应的歌词
+- (void)setupNoteLockLrcChange
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setLockScreenInfo:) name:@"LOCKIMAGE_CHANGE_NOTE" object:nil];
+    
+}
+
+//设置滑动的显示歌词
 - (void)setupLrc
 {
     CGFloat width = self.lrcView.frame.size.width;
@@ -249,8 +262,9 @@
     //歌词定时器的启动
     [self setLrcTimer];
     
+    #warning  为了显示歌词不在此处理
     //锁屏状态信息
-    [self setLockScreenInfo];
+    //    [self setLockScreenInfo];
 }
 #pragma mark - 启动动画
 - (void)startIconAnim
@@ -357,7 +371,7 @@
 // MPMediaItemPropertyTitle
 
 #pragma mark - 设置锁屏状态下屏幕显示对应的歌曲图片
-- (void)setLockScreenInfo
+- (void)setLockScreenInfo:(NSNotification *)note
 {
     
     //0.0获得当前正在播放的音乐
@@ -372,7 +386,11 @@
     [dictM setObject:@(self.player.duration) forKey:MPMediaItemPropertyPlaybackDuration];
     
     //设置展示的背景图片
-    MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:music.icon]];
+    
+    UIImage *lockLrcImage = (UIImage *)note.userInfo[@"lockImage"];
+    NSLog(@"lockLrcImage == %@",lockLrcImage);
+//    MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:music.icon]];
+    MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithImage:lockLrcImage];
     [dictM setObject:artwork forKey:MPMediaItemPropertyArtwork];
     
     playCenter.nowPlayingInfo = dictM;
